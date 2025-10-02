@@ -363,15 +363,17 @@ button:hover, .button:hover {
 }
 
 .contacts__form {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
   margin-top: 50px;
 }
 
 .contacts__form-label {
+  position: relative;
   display: flex;
   flex-direction: column;
   color: var(--color-yellow);
@@ -391,19 +393,67 @@ button:hover, .button:hover {
   outline: none;
 }
 
+.contacts__form-checkbox {
+  color: var(--color-white);
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.contacts__form-checkbox__input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.contacts__form-checkmark {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--color-yellow);
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  margin-right: 8px;
+  vertical-align: middle;
+  transition: all 0.2s;
+}
+
+.contacts__form-checkbox__input:checked+.contacts__form-checkmark::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0px;
+  width: 8px;
+  height: 16px;
+  border: solid var(--color-yellow);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
 .contacts__form-btn {
   width: 60%;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .contacts__form-error {
-  font-size: 18px;
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+  font-size: 16px;
   color: red;
   padding-top: 10px;
 }
 
 .contacts__form-success {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translate(-50%, 0);
   text-align: center;
+  width: 100%;
   color: rgb(0, 228, 0);
 }
 
@@ -507,6 +557,10 @@ button:hover, .button:hover {
 
   .header__nav-link {
     font-size: 26px;
+  }
+
+  .contacts__form-success {
+    bottom: -40px;
   }
 }
 

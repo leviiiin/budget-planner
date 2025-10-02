@@ -30,6 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
         isValid = false;
       }
     });
+    
+    const checkbox = document.getElementById("checkbox");
+    const checkboxError = document.getElementById("checkboxError");
+    checkboxError.textContent = "";
+
+    if (!checkbox.checked) {
+      checkboxError.textContent = "Du måste godkänna villkoren.";
+      if (isValid) checkbox.focus();
+      isValid = false;
+    } else {
+      userData["checkbox"] = true;
+    }
+
 
     if (!isValid) return;
 
